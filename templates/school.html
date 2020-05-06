@@ -6,12 +6,28 @@
         .important { color: #336699; }
     </style>
 {% endblock %}
+
+
+
+        {% block header %}
+<div class="HeaderLogo" >
+<table>
+	<tr>
+		<td width="5%"></td>
+		<td>
+			<img src="CathedralSchool_Logo_Horizontal_White.png" width="401" height="118">
+		</td>
+	</tr>
+</table>
+</div>
+        {% endblock %}
+        
 {% block content %}
     <h1>Subjects</h1>
     <p class="important">
     <ul>
      {% for item in seq %}
-    	<li><a href="{{ item.name }}.html">{{ item.name }}</a>  </li>
+    	<li><a href="{{ item.name }}/index.html">{{ item.name }}</a>  </li>
 {% endfor %}
 	</ul>
     </p>

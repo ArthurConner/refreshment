@@ -3,14 +3,20 @@
 <head>
     {% block head %}
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../style.css" />
     <title>{% block title %}{% endblock %} </title>
     {% endblock %}
 </head>
 <body >
+    <div id="Header">
+        {% block header %}
+
+        {% endblock %}
+    </div>
     <div id="content">{% block content %}{% endblock %}</div>
     <div id="footer">
         {% block footer %}
-        &copy; Copyright 2020 by <a href="http://domain.invalid/">you</a>.
+        Made by Arthur.
         {% endblock %}
     </div>
 </body>

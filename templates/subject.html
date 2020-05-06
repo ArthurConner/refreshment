@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %}{{ name }}{% endblock %}
+{% block head %}
+    {{ super() }}
+    <style type="text/css">
+        .important { color: #336699; }
+    </style>
+{% endblock %}
+
+        {% block header %}
+<div class="HeaderLogo" >
+<table>
+	<tr>
+		<td width="5%"></td>
+		<td>
+			<img src="../CathedralSchool_Logo_Horizontal_White.png" width="401" height="118">
+		</td>
+		</tr>
+		<tr><td><a href="../index.html">Home</a></td>
+	</tr>
+</table>
+</div>
+        {% endblock %}
+        
+{% block content %}
+    <h1>{{ item.name }}</h1>
+    <p class="important">
+    
+    <h3>Videos</h3>
+    <ul>
+     {% for less in videos %}
+    	<li><a href="{{ less.name }}.html">{{ less.name }}</a></br> 
+    	<video width="401" height="118" controls>
+  <source src="../../../Cathedral/{{ item.name }}/{{ less.fileName }}" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+
+    	 </li>
+{% endfor %}
+	</ul>
+	<h3>Resources</h3>
+    <ul>
+     {% for less in res %}
+    	<li>
+    	<a href="../../../Cathedral/{{ item.name }}/{{ less.fileName }}">
+{{ less.name }}
+</a>
+
+    	 </li>
+{% endfor %}
+	</ul>
+    </p>
+{% endblock %}
