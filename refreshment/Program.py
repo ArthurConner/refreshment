@@ -3,7 +3,9 @@
 __all__ = ['Record', 'Lesson', 'Subject', 'Program']
 
 # Cell
-import json
+from collections import defaultdict
+
+# Cell
 
 class Record:
 
@@ -58,9 +60,7 @@ class Lesson(Record):
         super().__init__(name,key,sort)
         self.fileName = filesName
         self.modifyTime = float(0)
-        self.requirements = []
-        self.nextLesson = []
-        self.tags = []
+        self.indexPath = []
 
     def sBase(self):
         if self.modifyTime > 0:
@@ -85,18 +85,16 @@ class Lesson(Record):
     def toDict(self):
         ret = super().toDict()
         ret["modifyTime"] = self.modifyTime
-        ret["requirements"] = self.requirements
-        ret["nextLesson"] = self.nextLesson
-        ret["tags"] = self.tags
+        ret["fileName"] = self.fileName
+        ret["indexPath"] = self.indexPath
         return ret
 
     def fromDict(s):
         ret = Lesson("","")
         ret.adjustKey(s["key"])
         ret.modifyTime = s["modifyTime"]
-        ret.requirements = s["requirements"]
-        ret.nextLesson = s["nextLesson"]
-        ret.tags = s["tags"]
+        ret.fileName = s["fileName"]
+        ret.indexPath = s["indexPath"]
         return ret
 
     def __str__(self):
@@ -109,19 +107,35 @@ class Subject(Record):
     def __init__(self, name,key = 0,sort = 0):
         super().__init__(name,key,sort)
         self.lessons = []
+        self.sequences = defaultdict(list)
+        self.lookup = {}
+        self.img = ""
 
     def addLesson(self,x):
         self.lessons = Lesson.appendUniqueFile(x,self.lessons)
+        self.lookup[x.key] = x
 
     def toDict(self):
         ret = super().toDict()
         ret["lessons"] = [x.toDict() for x in self.lessons]
+        seq = {}
+        for key, value in self.sequences.items():
+            seq[key] = value
+        ret["sequences"] = seq
+        ret["img"] = self.img
         return ret
 
     def fromDict(d):
         ret = Subject("","")
         ret.adjustKey(d["key"])
         ret.lessons = [ Lesson.fromDict(s) for s in d["lessons"]]
+
+        for x in ret.lessons:
+            ret.lookup[x.key] = x
+
+        for key, value in d["sequences"].items():
+            ret.sequences[key] = value
+        ret.img = d["img"]
         return ret
 
     def __repr__(self):
@@ -136,20 +150,36 @@ class Program(Record):
     def __init__(self, name, path = ".",key = 0,sort = 0 ):
         super().__init__(name,key,sort)
         self.subjects = []
+        self.title = name
+        self.lookup = {}
+        self.img = ""
 
     def toDict(self):
         ret = super().toDict()
         ret["subjects"] = [x.toDict() for x in self.subjects]
+        ret["title"] = self.title
+        ret["img"] = self.img
         return ret
 
     def fromDict(d):
         ret = Program("")
         ret.adjustKey(d["key"])
         ret.subjects = [Subject.fromDict(s) for s in d["subjects"]]
+        ret.title = d["title"]
+        for x in ret.subjects:
+            ret.lookup[x.key] = x
+        ret.img = d["img"]
         return ret
+
+
+    def fixPaths(self):
+        for progIndex, sub in self.lookup.items():
+            for subIndex, lesson in sub.lookup.items():
+                lesson.indexPath = [progIndex,subIndex]
 
     def addSubject(self,x):
         self.subjects = Subject.appendUnique(x,self.subjects)
+        self.lookup[x.key] = x
 
     def __repr__(self):
         return self.name + "Program, Subjects[" + ";".join( Record.printKeys(self.subjects)) +"]"

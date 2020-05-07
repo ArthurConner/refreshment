@@ -1,0 +1,53 @@
+body {
+  background-color: #AA303E;
+  color: white; 
+}
+
+a:link {
+  color: white; 
+  background-color: transparent; 
+  text-decoration: none;
+}
+
+a:visited {
+  color: white;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: white;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+a:active {
+  color: white;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+h1 {
+color: #E0B545; 
+}
+
+
+h3 {
+color: #E0B545; 
+}
+
+div.HeaderLogo{color: #AA303E;
+  margin-left:0px;
+    margin-right:0px;
+   background-color: #ABAD9E;
+  color: #AA303E; 
+}
+
+div.pageTitle{
+ text-align: center;
+color: #AA303E;
+font-size: 48px;
+ font-weight: bold;
+ margin-left:auto; margin-right:24;
+
+}

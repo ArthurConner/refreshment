@@ -9,12 +9,13 @@
 
         {% block header %}
 <div class="HeaderLogo" >
-<table>
+<table width="100%">
 	<tr>
 		<td width="5%"></td>
 		<td>
-			<img src="../CathedralSchool_Logo_Horizontal_White.png" width="401" height="118">
+			<img src="{{styleDir}}/CathedralSchool_Logo_Horizontal_White.png" width="401" height="118">
 		</td>
+		<td><div class="pageTitle" > {{ program.name }} {{ item.name }}</div></td>
 		</tr>
 		<tr><td><a href="../index.html">Home</a></td>
 	</tr>
@@ -23,15 +24,15 @@
         {% endblock %}
         
 {% block content %}
-    <h1>{{ item.name }}</h1>
+  
     <p class="important">
     
     <h3>Videos</h3>
     <ul>
      {% for less in videos %}
-    	<li><a href="{{ less.name }}.html">{{ less.name }}</a></br> 
-    	<video width="401" height="118" controls>
-  <source src="../../../Cathedral/{{ item.name }}/{{ less.fileName }}" type="video/mp4">
+    	<li><p class="videoLabel">{{ less.name }}</p> 
+    	<video  controls>
+  <source src="{{ resDir }}/{{ program.name }}/{{ item.name }}/{{ less.fileName }}" type="video/mp4">
 Your browser does not support the video tag.
 </video>
 
@@ -42,7 +43,7 @@ Your browser does not support the video tag.
     <ul>
      {% for less in res %}
     	<li>
-    	<a href="../../../Cathedral/{{ item.name }}/{{ less.fileName }}">
+    	<a href="{{ resDir }}/{{ program.name }}/{{ item.name }}/{{ less.fileName }}">
 {{ less.name }}
 </a>
 

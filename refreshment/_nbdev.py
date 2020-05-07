@@ -13,11 +13,13 @@ index = {"Record": "00_core.ipynb",
          "sample": "01_StudySystem.ipynb",
          "testS": "01_StudySystem.ipynb",
          "StudySystem": "01_StudySystem.ipynb",
-         "Render": "03_web.ipynb"}
+         "cleanLesson": "02_DataMunge.ipynb",
+         "Render": "05_staticGenerator.ipynb"}
 
 modules = ["Program.py",
            "School.py",
            "munge.py",
+           "flask.py",
            "Web.py"]
 
 doc_url = "https://arthurconner.github.io/refreshment/"
