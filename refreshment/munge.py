@@ -31,6 +31,7 @@ def cleanLesson(less):
 
 # Cell
 def makePriorsForSubject(sub):
+    skips = {}
     for (key, seq) in sub.sequences.items():
         i = 0
         for x in seq:
@@ -38,3 +39,13 @@ def makePriorsForSubject(sub):
             less.prior = seq[:i]
             less.next = seq[i+1:]
             i += 1
+            skips[x] = 1
+
+    unassigned = [x.key for x in sub.lessons if not x.key in skips]
+    i = 0
+    for x in unassigned:
+        less = sub.lookup[x]
+        less.prior = unassigned[:i]
+        less.next = unassigned[i+1:]
+        i += 1
+
