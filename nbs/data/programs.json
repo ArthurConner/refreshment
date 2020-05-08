@@ -716,151 +716,226 @@
                     "lessons": [
                         {
                             "fileName": "ThreeWishes.mp4",
-                            "indexPath": [],
+                            "indexPath": [
+                                0,
+                                1
+                            ],
                             "key": "Three Wishes|1|1|ThreeWishes.mp4",
                             "modifyTime": 1585844160.0
                         },
                         {
                             "fileName": "WhatDidYouDoWeekend.mp4",
-                            "indexPath": [],
+                            "indexPath": [
+                                0,
+                                2
+                            ],
                             "key": "What Did You Do Weekend|2|2|WhatDidYouDoWeekend.mp4",
                             "modifyTime": 1585850482.0
                         },
                         {
                             "fileName": "Laugh.mp4",
-                            "indexPath": [],
+                            "indexPath": [
+                                0,
+                                3
+                            ],
                             "key": "Laugh|3|3|Laugh.mp4",
                             "modifyTime": 1585850902.0
                         },
                         {
                             "fileName": "VirtualMuseum.mp4",
-                            "indexPath": [],
+                            "indexPath": [
+                                0,
+                                4
+                            ],
                             "key": "Virtual Museum|4|4|VirtualMuseum.mp4",
                             "modifyTime": 1585851193.0
                         },
                         {
                             "fileName": "EnjoyAboutDistanceLearning.mp4",
-                            "indexPath": [],
+                            "indexPath": [
+                                0,
+                                5
+                            ],
                             "key": "Enjoy About Distance Learning|5|5|EnjoyAboutDistanceLearning.mp4",
                             "modifyTime": 1585851251.0
                         },
                         {
                             "fileName": "FeelGood.mp4",
-                            "indexPath": [],
+                            "indexPath": [
+                                0,
+                                6
+                            ],
                             "key": "Feel Good|6|6|FeelGood.mp4",
                             "modifyTime": 1585864140.0
                         },
                         {
                             "fileName": "VirtualDictitation.mp4",
-                            "indexPath": [],
+                            "indexPath": [
+                                0,
+                                7
+                            ],
                             "key": "Virtual Dictitation|7|7|VirtualDictitation.mp4",
                             "modifyTime": 1585953136.1337147
                         },
                         {
                             "fileName": "TrueStory.mp4",
-                            "indexPath": [],
+                            "indexPath": [
+                                0,
+                                8
+                            ],
                             "key": "True Story|8|8|TrueStory.mp4",
                             "modifyTime": 1586106302.7909973
                         },
                         {
                             "fileName": "NoticeWonder.mp4",
-                            "indexPath": [],
+                            "indexPath": [
+                                0,
+                                9
+                            ],
                             "key": "Notice Wonder|9|9|NoticeWonder.mp4",
                             "modifyTime": 1586106528.1462297
                         },
                         {
                             "fileName": "teach.mp4",
-                            "indexPath": [],
+                            "indexPath": [
+                                0,
+                                10
+                            ],
                             "key": "teach|10|10|teach.mp4",
                             "modifyTime": 1586359624.9794824
                         },
                         {
                             "fileName": "PlannigHowToBook.mp4",
-                            "indexPath": [],
+                            "indexPath": [
+                                0,
+                                11
+                            ],
                             "key": "Plannig How To Book|11|11|PlannigHowToBook.mp4",
                             "modifyTime": 1586445010.167947
                         },
                         {
                             "fileName": "WritingPlan.mp4",
-                            "indexPath": [],
+                            "indexPath": [
+                                0,
+                                12
+                            ],
                             "key": "Writing Plan|12|12|WritingPlan.mp4",
                             "modifyTime": 1587396523.6407657
                         },
                         {
                             "fileName": "GK_PC_BK_Box4Lines.pdf",
-                            "indexPath": [],
+                            "indexPath": [
+                                0,
+                                13
+                            ],
                             "key": "GK_PC_BK_ Box4 Lines|13|13|GK_PC_BK_Box4Lines.pdf",
                             "modifyTime": 1587525431.384697
                         },
                         {
                             "fileName": "SketchingIdeas.mp4",
-                            "indexPath": [],
+                            "indexPath": [
+                                0,
+                                14
+                            ],
                             "key": "Sketching Ideas|14|14|SketchingIdeas.mp4",
                             "modifyTime": 1587573368.2172415
                         },
                         {
                             "fileName": "HowToDetails.mp4",
-                            "indexPath": [],
+                            "indexPath": [
+                                0,
+                                15
+                            ],
                             "key": "How To Details|15|15|HowToDetails.mp4",
                             "modifyTime": 1587656369.998442
                         },
                         {
                             "fileName": "Dictation.mp4",
-                            "indexPath": [],
+                            "indexPath": [
+                                0,
+                                16
+                            ],
                             "key": "Dictation|16|16|Dictation.mp4",
                             "modifyTime": 1587744179.0480406
                         },
                         {
                             "fileName": "EditingWorkBook.mp4",
-                            "indexPath": [],
+                            "indexPath": [
+                                0,
+                                17
+                            ],
                             "key": "Editing Work Book|17|17|EditingWorkBook.mp4",
                             "modifyTime": 1587744199.1651008
                         },
                         {
                             "fileName": "OptionalDictation.mp4",
-                            "indexPath": [],
+                            "indexPath": [
+                                0,
+                                18
+                            ],
                             "key": "Optional Dictation|18|18|OptionalDictation.mp4",
                             "modifyTime": 1587744209.488401
                         },
                         {
                             "fileName": "CoverBook.mp4",
-                            "indexPath": [],
+                            "indexPath": [
+                                0,
+                                19
+                            ],
                             "key": "Cover Book|19|19|CoverBook.mp4",
                             "modifyTime": 1588008602.0896344
                         },
                         {
                             "fileName": "HowToChoosingRightWords.mp4",
-                            "indexPath": [],
+                            "indexPath": [
+                                0,
+                                20
+                            ],
                             "key": "How To Choosing Right Words|20|20|HowToChoosingRightWords.mp4",
                             "modifyTime": 1588205334.599958
                         },
                         {
                             "fileName": "HowToListenToReaders.mp4",
-                            "indexPath": [],
+                            "indexPath": [
+                                0,
+                                21
+                            ],
                             "key": "How To Listen To Readers|21|21|HowToListenToReaders.mp4",
                             "modifyTime": 1588205810.1641917
                         },
                         {
                             "fileName": "WorkOnHowTo.mp4",
-                            "indexPath": [],
+                            "indexPath": [
+                                0,
+                                22
+                            ],
                             "key": "Work On How To|22|22|WorkOnHowTo.mp4",
                             "modifyTime": 1588261797.4888272
                         },
                         {
                             "fileName": "LetterConceptY.mp4",
-                            "indexPath": [],
+                            "indexPath": [
+                                0,
+                                23
+                            ],
                             "key": "Letter Concept Y|23|23|LetterConceptY.mp4",
                             "modifyTime": 1588605617.3939006
                         },
                         {
                             "fileName": "imaging.seesaw.me.png",
-                            "indexPath": [],
+                            "indexPath": [
+                                0,
+                                24
+                            ],
                             "key": "imaging.seesaw.me|24|24|imaging.seesaw.me.png",
                             "modifyTime": 1588605679.964226
                         },
                         {
                             "fileName": "BestGuessSpelling.mp4",
-                            "indexPath": [],
+                            "indexPath": [
+                                0,
+                                25
+                            ],
                             "key": "Best Guess Spelling|25|25|BestGuessSpelling.mp4",
                             "modifyTime": 1588691977.6971543
                         }
@@ -868,7 +943,7 @@
                     "sequences": {}
                 }
             ],
-            "title": "Cathedral"
+            "title": "Kindergarten"
         }
     ],
     "savePath": "./data/programs.json"

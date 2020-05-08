@@ -15,7 +15,7 @@
 		<td>
 			<img src="{{styleDir}}/CathedralSchool_Logo_Horizontal_White.png" width="401" height="118">
 		</td>
-		<td><div class="pageTitle" > {{ program.name }} {{ item.name }}</div></td>
+		<td><div class="pageTitle" > {{ program.title }} {{ item.name }}</div></td>
 		</tr>
 		<tr><td><a href="../index.html">Home</a></td>
 	</tr>
@@ -24,31 +24,31 @@
         {% endblock %}
         
 {% block content %}
-  
-    <p class="important">
+
+
+   {% for key, value in item.sequences.items() %}
+      <h3 id="subject_{{key}}">{{key}}</h1>
+      <ol>
+      	{% for vid_id in value %}<li><a href="vid_{{ vid_id }}.html">{{item.lookup[vid_id].name}}</a></li> {% endfor %}
+   	 </ol>
+     {% endfor %}
+
     
-    <h3>Videos</h3>
-    <ul>
-     {% for less in videos %}
-    	<li><p class="videoLabel">{{ less.name }}</p> 
-    	<video  controls>
-  <source src="{{ resDir }}/{{ program.name }}/{{ item.name }}/{{ less.fileName }}" type="video/mp4">
-Your browser does not support the video tag.
-</video>
-
-    	 </li>
-{% endfor %}
-	</ul>
+    {% if videos|length > 0 %}
+    
+    <h3>All Videos</h3>
+    	<ul>
+     {% for less in videos %}<li><a href="vid_{{ less.key }}.html">{{ less.name }}</a></li>{% endfor %}
+		</ul>
+	{% endif %}
+		
+	
+	{% if res|length > 0 %}
+	
 	<h3>Resources</h3>
-    <ul>
-     {% for less in res %}
-    	<li>
-    	<a href="{{ resDir }}/{{ program.name }}/{{ item.name }}/{{ less.fileName }}">
-{{ less.name }}
-</a>
+    	<ul>
+     {% for less in res %}<li><a href="{{ resDir }}/{{ program.name }}/{{ item.name }}/{{ less.fileName }}">{{ less.name }}</a></li>{% endfor %}
+		</ul>
+	{% endif %}
 
-    	 </li>
-{% endfor %}
-	</ul>
-    </p>
 {% endblock %}

@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}{{ name }}{% endblock %}
+{% block head %}
+    {{ super() }}
+    <style type="text/css">
+        .important { color: #336699; }
+    </style>
+{% endblock %}
+
+        {% block header %}
+<div class="HeaderLogo" >
+<table width="100%">
+	<tr>
+		<td width="5%"></td>
+		<td>
+			<img src="{{styleDir}}/CathedralSchool_Logo_Horizontal_White.png" width="401" height="118">
+		</td>
+		<td><div class="pageTitle" > {{ program.title }} {{ item.name }}</div></td>
+		</tr>
+		<tr><td><a href="../index.html">Home</a></td>
+		<td><a href="index.html">{{ item.name }}</a></td>
+	</tr>
+</table>
+</div>
+
+
+
+<div class="videoArea" >
+    	<h2 class="videoDetail">{{ less.name }}</h2> 
+    	<video  controls style="margin-left: auto; margin-right: auto;" ><source src="{{ resDir }}/{{ program.name }}/{{ item.name }}/{{ less.fileName }}" type="video/mp4">Your browser does not support the video tag.</video>
+		<h2 class="videoDetail">&nbsp;&nbsp;</h2> 
+</div>
+
+<div class="videoDetail">
+	{% if  less.prior|length > 0 %}
+     <h3 class="videoDetail">Prior</h3>
+     	<ol>
+      	{% for vid_id in less.prior %}<li> <a href="vid_{{ vid_id }}.html">{{item.lookup[vid_id].name}}</a></li>
+      	{% endfor %}
+   		</ol>
+  	{% endif %} 
+     
+     {% if less.next|length > 0 %}
+     <h3 class="videoDetail">Next</h3>
+     	<ol>
+      {% for vid_id in less.next %}<li><a href="vid_{{ vid_id }}.html" >{{item.lookup[vid_id].name}}</a></li>
+      {% endfor %}
+   		</ol>
+   	{% endif %}
+</div>
+{% endblock %}

@@ -61,6 +61,8 @@ class Lesson(Record):
         self.fileName = filesName
         self.modifyTime = float(0)
         self.indexPath = []
+        self.prior = []
+        self.next = []
 
     def sBase(self):
         if self.modifyTime > 0:

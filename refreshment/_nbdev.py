@@ -14,6 +14,7 @@ index = {"Record": "00_core.ipynb",
          "testS": "01_StudySystem.ipynb",
          "StudySystem": "01_StudySystem.ipynb",
          "cleanLesson": "02_DataMunge.ipynb",
+         "makePriorsForSubject": "02_DataMunge.ipynb",
          "Render": "05_staticGenerator.ipynb"}
 
 modules = ["Program.py",
