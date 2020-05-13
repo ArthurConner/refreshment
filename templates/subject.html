@@ -15,7 +15,7 @@
 		<td>
 			<img src="{{styleDir}}/CathedralSchool_Logo_Horizontal_White.png" width="401" height="118">
 		</td>
-		<td><div class="pageTitle" > {{ program.title }} {{ item.name }}</div></td>
+		<td><div class="pageTitle" > {{ program.title }}: {{ item.title }}</div></td>
 		</tr>
 		<tr><td><a href="../index.html">Home</a></td>
 	</tr>
@@ -47,7 +47,7 @@
 	
 	<h3>Resources</h3>
     	<ul>
-     {% for less in res %}<li><a href="{{ resDir }}/{{ program.name }}/{{ item.name }}/{{ less.fileName }}">{{ less.name }}</a></li>{% endfor %}
+     {% for less in res %}<li><a href="{{ less.fileName }}">{{ less.name }}</a></li>{% endfor %}
 		</ul>
 	{% endif %}
 

@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block title %}{{ name }}{% endblock %}
+{% block head %}
+    {{ super() }}
+    <style type="text/css">
+        .important { color: #336699; }
+    </style>
+{% endblock %}
+
+        {% block header %}
+<div class="HeaderLogo" >
+<table width="100%">
+	<tr>
+		<td width="5%"></td>
+		<td>
+			<img src="{{styleDir}}/CathedralSchool_Logo_Horizontal_White.png" width="401" height="118">
+		</td>
+		<td><div class="pageTitle" > {{ program.title }}: Calendar</div></td>
+		</tr>
+		<tr><td><a href="index.html">Home</a></td>
+	</tr>
+</table>
+</div>
+
+
+
+<div class="videoArea" >
+
+		<table width="100%">
+		
+		   	{% for week in grid%}
+		   		<tr>
+		   			{% for day in week%}
+		   			<td>
+		   			{{ day.date }}
+		   			{% if day.lessons|length > 0 %}
+		   				<ul>
+		   				{% for key, value in day.lessons.items() %}
+		   				
+		   					<li> 
+		   					  	{% for x  in value %}
+		   					  		<a href="{{ key }}/vid_{{ x }}.html">{{ key }} </a>
+		   					  	{% endfor %}
+		   					  
+		   					
+		   					</li>
+		   				{% endfor %}
+		   				</ul>
+					{% endif %}
+		   			</td>
+		   			{% endfor %}
+		   	</tr>
+      		{% endfor %}
+   		</table>
+
+</div>
+
+{% endblock %}

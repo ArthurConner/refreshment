@@ -15,10 +15,10 @@
 		<td>
 			<img src="{{styleDir}}/CathedralSchool_Logo_Horizontal_White.png" width="401" height="118">
 		</td>
-		<td><div class="pageTitle" > {{ program.title }} {{ item.name }}</div></td>
+		<td><div class="pageTitle" > {{ program.title }}: {{ item.title }}</div></td>
 		</tr>
 		<tr><td><a href="../index.html">Home</a></td>
-		<td><a href="index.html">{{ item.name }}</a></td>
+		<td><a href="index.html">{{item.title }}</a></td>
 	</tr>
 </table>
 </div>
@@ -27,7 +27,7 @@
 
 <div class="videoArea" >
     	<h2 class="videoDetail">{{ less.name }}</h2> 
-    	<video  controls style="margin-left: auto; margin-right: auto;" ><source src="{{ resDir }}/{{ program.name }}/{{ item.name }}/{{ less.fileName }}" type="video/mp4">Your browser does not support the video tag.</video>
+    	<video  controls style="margin-left: auto; margin-right: auto;" ><source src="{{ less.fileName }}" type="video/mp4">Your browser does not support the video tag.</video>
 		<h2 class="videoDetail">&nbsp;&nbsp;</h2> 
 </div>
 

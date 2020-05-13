@@ -13,14 +13,23 @@ index = {"Record": "00_core.ipynb",
          "sample": "01_StudySystem.ipynb",
          "testS": "01_StudySystem.ipynb",
          "StudySystem": "01_StudySystem.ipynb",
+         "removeAuthor": "02_DataMunge.ipynb",
+         "cleanName": "02_DataMunge.ipynb",
          "cleanLesson": "02_DataMunge.ipynb",
+         "subjectWithName": "02_DataMunge.ipynb",
+         "assignLessonsWithName": "02_DataMunge.ipynb",
          "makePriorsForSubject": "02_DataMunge.ipynb",
-         "Render": "05_staticGenerator.ipynb"}
+         "unassignedForSubject": "02_DataMunge.ipynb",
+         "assignCategoriesToSubject": "02_DataMunge.ipynb",
+         "initials": "02_DataMunge.ipynb",
+         "keyFromDate": "02_DataMunge.ipynb",
+         "dataFromDate": "02_DataMunge.ipynb",
+         "dateGrid": "02_DataMunge.ipynb",
+         "Render": "03_StaticGenerator.ipynb"}
 
 modules = ["Program.py",
            "School.py",
            "munge.py",
-           "flask.py",
            "Web.py"]
 
 doc_url = "https://arthurconner.github.io/refreshment/"

@@ -71,7 +71,7 @@ def subjectFromPath(program,subjectName,struct):
             found = True
     if not found:
         s = Subject(subjectName)
-        p.subjects.append(s)
+        p.addSubject(s)
 
     return s
 
@@ -82,7 +82,7 @@ testS.toDict()
 # Cell
 class StudySystem(Record):
 
-    def __init__(self, origin="../..", filename="./data/programs.json"):
+    def __init__(self,filename="./data/programs.json", origin="../.." ):
         super().__init__("StudySystem",1,1)
         self.programs = []
         self.schoolDepth = 4
@@ -94,7 +94,7 @@ class StudySystem(Record):
     def loadDirectory(self,validator = PathValidaor()):
 
         schoolDepth = self.schoolDepth
-        for root, dirs, files in walk("../.."):
+        for root, dirs, files in walk(self.origin):
             if validator.isValid(root):
                 fPath = fullPathSplit(root)
                 #print(fPath,root)

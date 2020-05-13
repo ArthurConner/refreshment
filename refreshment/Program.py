@@ -111,6 +111,7 @@ class Subject(Record):
         self.lessons = []
         self.sequences = defaultdict(list)
         self.lookup = {}
+        self.title = name
         self.img = ""
 
     def addLesson(self,x):
@@ -125,6 +126,7 @@ class Subject(Record):
             seq[key] = value
         ret["sequences"] = seq
         ret["img"] = self.img
+        ret["title"] = self.title
         return ret
 
     def fromDict(d):
@@ -138,6 +140,7 @@ class Subject(Record):
         for key, value in d["sequences"].items():
             ret.sequences[key] = value
         ret.img = d["img"]
+        ret.title = d["title"]
         return ret
 
     def __repr__(self):

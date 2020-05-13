@@ -18,6 +18,8 @@
 			<img src="{{styleDir}}/CathedralSchool_Logo_Horizontal_White.png" width="401" height="118">
 		</td>
 		<td><div class="pageTitle" >{{ program.title }} Distance Learning</div></td>
+		</tr>
+		<tr><td><a href="Calendar.html">Calendar</a></td>
 	</tr>
 </table>
 </div>
@@ -28,7 +30,7 @@
     <p class="important">
     <ul>
      {% for item in seq %}
-    	<li><a href="{{ item.name }}/index.html">{{ item.name }}</a>  </li>
+    	<li><a href="{{ item.name }}/index.html">{{ item.title }}</a>  </li>
 {% endfor %}
 	</ul>
     </p>
