@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% import 'calwidget.html' as calwidget %}
 {% block title %}{{ name }}{% endblock %}
 {% block head %}
     {{ super() }}
@@ -22,37 +23,7 @@
 </table>
 </div>
 
+  {{ calwidget.body(grid,1) }}
 
-
-<div class="videoArea" >
-
-		<table width="100%">
-		
-		   	{% for week in grid%}
-		   		<tr>
-		   			{% for day in week%}
-		   			<td>
-		   			{{ day.date }}
-		   			{% if day.lessons|length > 0 %}
-		   				<ul>
-		   				{% for key, value in day.lessons.items() %}
-		   				
-		   					<li> 
-		   					  	{% for x  in value %}
-		   					  		<a href="{{ key }}/vid_{{ x }}.html">{{ key }} </a>
-		   					  	{% endfor %}
-		   					  
-		   					
-		   					</li>
-		   				{% endfor %}
-		   				</ul>
-					{% endif %}
-		   			</td>
-		   			{% endfor %}
-		   	</tr>
-      		{% endfor %}
-   		</table>
-
-</div>
 
 {% endblock %}

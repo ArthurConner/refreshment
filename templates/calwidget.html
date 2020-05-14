@@ -1,0 +1,30 @@
+{% macro body(grid,showKey) -%}
+<div class="videoArea" >
+
+		<table  class="calendar">
+		
+		   	{% for week in grid%}
+		   		<tr  class="calendar">
+		   			{% for day in week%}
+		   			<td  class="calendar" width="10%">
+		   			<div class="calHeader" >{{ day.date }}</div>
+		   			{% if day.lessons|length + day.resources|length > 0 %}
+		   			<div class="calBody">
+		   				<ul>
+		   				{% for key, value in day.lessons.items() %}
+		   					<li> {% for x  in value %}<a class="calendar" href="{% if showKey > 0 %}{{ key }}/{% endif %}vid_{{ x.key }}.html"> {{ x.name }} </a>{% endfor %}</li>{% endfor %}
+		   				{% for key, value in day.resources.items() %}
+		   					<li> {% for x  in value %}<a class="calendar" href="{% if showKey > 0 %}{{ key }}/{% endif %}{{ x.fileName }}"> {{ x.name }} </a>{% endfor %}</li>{% endfor %}
+		   				
+		   				</ul>
+		   			</div>
+					{% endif %}
+		   			</td>
+		   			{% endfor %}
+		   	</tr>
+      		{% endfor %}
+   		</table>
+
+</div>
+
+{% endmacro %}

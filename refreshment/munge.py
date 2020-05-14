@@ -113,28 +113,31 @@ def keyFromDate(d):
     return str(d.year) + "." + str(100 + d.month) + "." + str(100 +d.day)
 
 
-def dataFromDate(aDate,master):
+def dataFromDate(aDate,less,res):
     key = keyFromDate(aDate)
-    return {"date":aDate.strftime("%B %d, %Y"),"lessons":master[key] }
+    return {"date":aDate.strftime("%B %d, %Y"),"lessons":less[key],"resources":res[key] }
 
 
-def dateGrid(prog):
+def dateGrid(prog,subject=""):
     allLessons = defaultdict(lambda: defaultdict(list))
+    resources = defaultdict(lambda: defaultdict(list))
 
 
     startDate = datetime(year=3000,month=1,day=1)
     endDate = datetime(year=1900,month=1,day=1)
     for y in prog.subjects:
-        for z in y.lessons:
-            if z.fileName.endswith(".mp4"):
+        if subject == "" or subject == y.name:
+            for z in y.lessons:
                 dt_object = datetime.fromtimestamp(z.modifyTime)
                 if dt_object < startDate:
                     startDate = dt_object
                 if dt_object > endDate:
-                    endDate = dt_object
-
+                        endDate = dt_object
                 key = keyFromDate(dt_object)
-                allLessons[key][y.name].append(z.key)
+                if z.fileName.endswith(".mp4"):
+                    allLessons[key][y.name].append(z)
+                else:
+                    resources[key][y.name].append(z)
 
 
     days = list(allLessons.keys())
@@ -148,14 +151,14 @@ def dateGrid(prog):
 
 
     while keyFromDate(endDate) != keyFromDate(currentDate):
-        currentWeek.append(dataFromDate(currentDate,allLessons))
+        currentWeek.append(dataFromDate(currentDate,allLessons,res=resources))
         if currentDate.strftime("%w")=="0":
             weeks.append(currentWeek)
             currentWeek = []
         currentDate += delta
 
 
-    currentWeek.append(dataFromDate(endDate,allLessons))
+    currentWeek.append(dataFromDate(endDate,allLessons,res=resources))
     weeks.append(currentWeek)
 
     return weeks

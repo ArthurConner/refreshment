@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% import 'calwidget.html' as calwidget %}
 {% block title %}{{ name }}{% endblock %}
 {% block head %}
     {{ super() }}
@@ -51,4 +52,8 @@
 		</ul>
 	{% endif %}
 
+<h3>History</h3>
+  
+  {{ calwidget.body(grid,0) }}
+  
 {% endblock %}

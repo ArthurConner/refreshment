@@ -21,7 +21,7 @@ a:hover {
   text-decoration: underline;
 }
 
-a:active {
+a:hover {
   color: white;
   background-color: transparent;
   text-decoration: underline;
@@ -80,4 +80,42 @@ h2.videoDetail{
 
 a.videoDetail{
  color: #AA303E;
+}
+
+table.calendar {
+	border-style: solid;
+	border-width: 7px;
+	border-color: #ABAD9E;
+	background-color: #ABAD9E;
+}
+
+th.calendar  {
+	border: 5px solid blue;
+}
+
+td.calendar  {
+ vertical-align: text-top;
+	border: 7px ridge #ABAD9E;
+	color: #E0B545;
+	background-color: #AA303E ;
+}
+  
+  
+a.calendar, a.calendar:visited, a.calendar:hover :link {
+  color: #E0B545; 
+  background-color: transparent; 
+  text-decoration: none;
+}
+
+div.calHeader{
+  top: 0px;
+background-color: #E0B545; 
+	color: #AA303E ;
+	
+}
+
+div.calBody{
+ text-align: left;
+  left: 2px;
+  xwidth: 300px;
 }
