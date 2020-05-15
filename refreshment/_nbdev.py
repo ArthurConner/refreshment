@@ -21,6 +21,8 @@ index = {"Record": "00_core.ipynb",
          "makePriorsForSubject": "02_DataMunge.ipynb",
          "unassignedForSubject": "02_DataMunge.ipynb",
          "assignCategoriesToSubject": "02_DataMunge.ipynb",
+         "loadMetaFile": "02_DataMunge.ipynb",
+         "processGuide": "02_DataMunge.ipynb",
          "initials": "02_DataMunge.ipynb",
          "keyFromDate": "02_DataMunge.ipynb",
          "dataFromDate": "02_DataMunge.ipynb",
@@ -30,7 +32,8 @@ index = {"Record": "00_core.ipynb",
 modules = ["Program.py",
            "School.py",
            "munge.py",
-           "Web.py"]
+           "Web.py",
+           "covid.py"]
 
 doc_url = "https://arthurconner.github.io/refreshment/"
 

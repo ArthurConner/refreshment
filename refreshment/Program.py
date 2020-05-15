@@ -32,11 +32,14 @@ class Record:
         return self.name + "|" + str(self.key) + "|" + str(self.sort)
 
     def toDict(self):
-        return {"key" : self.keyString() }
+        return {"name" : self.name,"key":self.key,"sort":self.sort }
 
     def fromDict(s):
         ret = Record("")
-        ret.adjustKey(s["key"])
+        #ret.adjustKey(s["key"])
+        ret.name = s["name"]
+        ret.key = s["key"]
+        ret.sort = s["sort"]
         return ret
 
     def __repr__(self):
@@ -93,7 +96,9 @@ class Lesson(Record):
 
     def fromDict(s):
         ret = Lesson("","")
-        ret.adjustKey(s["key"])
+        ret.name = s["name"]
+        ret.key = s["key"]
+        ret.sort = s["sort"]
         ret.modifyTime = s["modifyTime"]
         ret.fileName = s["fileName"]
         ret.indexPath = s["indexPath"]
@@ -131,7 +136,9 @@ class Subject(Record):
 
     def fromDict(d):
         ret = Subject("","")
-        ret.adjustKey(d["key"])
+        ret.name = d["name"]
+        ret.key = d["key"]
+        ret.sort = d["sort"]
         ret.lessons = [ Lesson.fromDict(s) for s in d["lessons"]]
 
         for x in ret.lessons:
@@ -168,7 +175,9 @@ class Program(Record):
 
     def fromDict(d):
         ret = Program("")
-        ret.adjustKey(d["key"])
+        ret.name = d["name"]
+        ret.key = d["key"]
+        ret.sort = d["sort"]
         ret.subjects = [Subject.fromDict(s) for s in d["subjects"]]
         ret.title = d["title"]
         for x in ret.subjects:

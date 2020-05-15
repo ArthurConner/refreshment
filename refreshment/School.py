@@ -34,7 +34,7 @@ class PathValidaor:
             return False
     return True
 
-  def __init__(self,  skips = [r"^../../refreshment",r"\.DS_Store$"]):
+  def __init__(self,  skips = [r"^../../refreshment",r"\.DS_Store$",r"meta.json$"]):
     self.skips = [re.compile(x) for x in skips]
 
 
@@ -116,7 +116,9 @@ class StudySystem(Record):
 
     def fromDict(d):
         ret = StudySystem("")
-        ret.adjustKey(d["key"])
+        ret.name = d["name"]
+        ret.key = d["key"]
+        ret.sort = d["sort"]
         ret.programs = [Program.fromDict(x) for x in d["programs"]]
         ret.origin = d["origin"]
         ret.savePath = d["savePath"]

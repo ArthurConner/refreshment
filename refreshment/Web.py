@@ -6,12 +6,13 @@ __all__ = ['Render']
 import os
 import sys
 import shutil
+import json
 from jinja2 import Environment, FileSystemLoader, Template
 
 # Cell
 from .School import StudySystem
 from .Program import Program, Subject, Record, Lesson
-from .munge import makePriorsForSubject, removeAuthor, dateGrid,initials
+from .munge import  dateGrid, processGuide
 
 # Cell
 
@@ -50,7 +51,6 @@ class Render:
         f.write(output)
 
     def renderSubject(self,sub):
-        makePriorsForSubject(sub)
         template = self.env.get_template("subject.html")
         videos = [x for x in sub.lessons if x.fileName.endswith(".mp4")]
         resources = [x for x in sub.lessons if not x.fileName.endswith(".mp4")]
@@ -63,6 +63,7 @@ class Render:
                                  res=resources,
                                  resDir=resDir,
                                  program = self.program,
+                                 grid = reversed(dateGrid(self.program,subject=sub.name)),
                                  styleDir=os.path.join("..",self.resources))
         subDir = os.path.join(self.outputdir,sub.name)
 
@@ -120,6 +121,9 @@ class Render:
             full_file_name = os.path.join(startDir, file_name)
             if os.path.isfile(full_file_name):
                 shutil.copy(full_file_name, os.path.join(resDir, file_name))
+
+        with open(os.path.join(resDir, "lemonade.json"), "w") as dataFile:
+            json.dump(self.program.toDict(), dataFile, indent=4, sort_keys=True)
 
     def addFiles(self):
         for sub in self.program.subjects:

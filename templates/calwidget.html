@@ -10,12 +10,16 @@
 		   			<div class="calHeader" >{{ day.date }}</div>
 		   			{% if day.lessons|length + day.resources|length > 0 %}
 		   			<div class="calBody">
+		   				{% if day.lessons|length * day.resources|length > 0 %}Videos{% endif %}
 		   				<ul>
 		   				{% for key, value in day.lessons.items() %}
-		   					<li> {% for x  in value %}<a class="calendar" href="{% if showKey > 0 %}{{ key }}/{% endif %}vid_{{ x.key }}.html"> {{ x.name }} </a>{% endfor %}</li>{% endfor %}
+		   					 {% for x  in value %}<li><a class="calendar" href="{% if showKey > 0 %}{{ key }}/{% endif %}vid_{{ x.key }}.html"> {{ x.name }} </a></li>{% endfor %}{% endfor %}
+		   				</ul>
+		   					
+		   			 {% if day.lessons|length * day.resources|length > 0 %}Resources{% endif %}
+		   				<ul>
 		   				{% for key, value in day.resources.items() %}
-		   					<li> {% for x  in value %}<a class="calendar" href="{% if showKey > 0 %}{{ key }}/{% endif %}{{ x.fileName }}"> {{ x.name }} </a>{% endfor %}</li>{% endfor %}
-		   				
+		   					 {% for x  in value %}<li><a class="calendar" href="{% if showKey > 0 %}{{ key }}/{% endif %}{{ x.fileName }}"> {{ x.name }} </a> </li>{% endfor %}{% endfor %}
 		   				</ul>
 		   			</div>
 					{% endif %}
