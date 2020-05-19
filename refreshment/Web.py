@@ -27,7 +27,10 @@ class Render:
 
         self.file_loader = FileSystemLoader(self.template)
         self.env = Environment(loader=self.file_loader)
-        self.resources = "resources"
+        self.resourcesName =  "resources"
+        self.resourcesStart = os.path.join(".", self.resourcesName )
+        self.resourcesEnd =  os.path.join(self.outputdir,self.resourcesName)
+
 
 
     def basePath(self):
@@ -41,7 +44,7 @@ class Render:
                                  resDir=resDir,
                                  less=lesson,
                                  program = self.program,
-                                 styleDir=os.path.join("..",self.resources))
+                                 styleDir=os.path.join("..",self.resourcesName))
         subDir = os.path.join(self.outputdir,sub.name)
 
         if not os.path.exists(subDir):
@@ -63,7 +66,7 @@ class Render:
                                  resDir=resDir,
                                  program = self.program,
                                  grid = reversed(dateGrid(self.program,subject=sub.name)),
-                                 styleDir=os.path.join("..",self.resources))
+                                 styleDir=os.path.join("..",self.resourcesName))
         subDir = os.path.join(self.outputdir,sub.name)
 
         if not os.path.exists(subDir):
@@ -81,7 +84,7 @@ class Render:
         template = self.env.get_template("calendar.html")
         output = template.render(program=self.program,
                                  grid=grid,
-                                 styleDir=os.path.join(".",self.resources))
+                                 styleDir=os.path.join(".",self.resourcesName))
 
         f = open(os.path.join(self.outputdir,"calendar.html"), "w")
         f.write(output)
@@ -101,7 +104,7 @@ class Render:
         template = self.env.get_template("school.html")
         output = template.render(program=self.program,
                                  seq=seq,
-                                 styleDir=os.path.join(".",self.resources))
+                                 styleDir=os.path.join(".",self.resourcesName))
 
         f = open(os.path.join(self.outputdir,"index.html"), "w")
         f.write(output)
@@ -110,18 +113,17 @@ class Render:
         self.addResources()
 
     def addResources(self):
-        resDir = os.path.join(self.outputdir,self.resources)
-        if not os.path.exists(resDir):
-            os.mkdir(resDir)
-        startDir = os.path.join(".", self.resources)
-        src_files = os.listdir(startDir)
+        if not os.path.exists(self.resourcesEnd):
+            os.mkdir(self.resourcesEnd)
+
+        src_files = os.listdir(self.resourcesStart)
 
         for file_name in src_files:
-            full_file_name = os.path.join(startDir, file_name)
+            full_file_name = os.path.join(self.resourcesStart, file_name)
             if os.path.isfile(full_file_name):
-                shutil.copy(full_file_name, os.path.join(resDir, file_name))
+                shutil.copy(full_file_name, os.path.join(self.resourcesEnd, file_name))
 
-        with open(os.path.join(resDir, "lemonade.json"), "w") as dataFile:
+        with open(os.path.join( self.resourcesEnd, "lemonade.json"), "w") as dataFile:
             json.dump(self.program.toDict(), dataFile, indent=4, sort_keys=True)
 
     def addFiles(self):

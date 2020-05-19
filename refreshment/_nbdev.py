@@ -35,7 +35,7 @@ index = {"Record": "00_core.ipynb",
 
 modules = ["Program.py",
            "School.py",
-           "munge.py",
+           "Munge.py",
            "Web.py",
            "covid.py"]
 
